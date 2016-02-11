@@ -10,10 +10,10 @@
 CONTENTS                                                  *latexlight-contents*
 
    01. Intro ............................................... |latexlight-intro|
-   02. Features ......................................... |latexlight-features|
-   03. Configuration ............................... |latexlight-configuration|
-   04. Contributions ............................... |latexlight-contributions|
-   05. License ............................... |latexlight-license|
+   02. Features ............................................ |latexlight-features|
+   03. Configuration ....................................... |latexlight-configuration|
+   04. Contributions ....................................... |latexlight-contributions|
+   05. License ............................................. |latexlight-license|
 
 ==============================================================================
 INTRODUCTION                                                 *latexlight-intro*
@@ -36,6 +36,6 @@ Contributions and pull requests are welcome.
 ==============================================================================
 LICENSE                                                    *latexlight-license*
 
-MIT License.  Copyright © 2016 Ruben Verweij.
+MIT License.  Copyright Â© 2016 Ruben Verweij.
 
  vim:tw=78:ts=8:ft=help:norl:
