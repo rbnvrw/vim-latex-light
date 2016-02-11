@@ -1,41 +1,60 @@
 *latexlight.txt*  Lightweight LaTeX companion
-*LaTeX Light*
-    __         ______    _  __    __    _       __    __ 
-   / /   ____ /_  __/__ | |/ /   / /   (_)___ _/ /_  / /_
-  / /   / __ `// / / _ \|   /   / /   / / __ `/ __ \/ __/
- / /___/ /_/ // / /  __/   |   / /___/ / /_/ / / / / /_  
-/_____/\__,_//_/  \___/_/|_|  /_____/_/\__, /_/ /_/\__/  
-                                      /____/             
-==============================================================================
-CONTENTS                                                  *latexlight-contents*
-
-   01. Intro ............................................... |latexlight-intro|
-   02. Features ............................................ |latexlight-features|
-   03. Configuration ....................................... |latexlight-configuration|
-   04. Contributions ....................................... |latexlight-contributions|
-   05. License ............................................. |latexlight-license|
+    __         ______    _  __    __    _       __    __  ~
+   / /   ____ /_  __/__ | |/ /   / /   (_)___ _/ /_  / /_ ~
+  / /   / __ `// / / _ \|   /   / /   / / __ `/ __ \/ __/ ~
+ / /___/ /_/ // / /  __/   |   / /___/ / /_/ / / / / /_   ~
+/_____/\__,_//_/  \___/_/|_|  /_____/_/\__, /_/ /_/\__/   ~
+                                      /____/              ~
 
 ==============================================================================
-INTRODUCTION                                                 *latexlight-intro*
+CONTENTS                                                 *latexlight-contents*
 
-LaTeX Light is a lightweight LaTeX companion for Vim that compiles your document and shows you LaTeX warnings and errors.
-
-==============================================================================
-FEATURES                                                  *latexlight-features*
-
-
-==============================================================================
-CONFIGURATION                                        *latexlight-configuration*
-
+01. Intro ................................................. |latexlight-intro|
+02. Features ........................................... |latexlight-features|
+03. Configuration ................................. |latexlight-configuration|
+04. Contributions ................................. |latexlight-contributions|
+05. License ............................................. |latexlight-license|
 
 ==============================================================================
-CONTRIBUTIONS                                        *latexlight-contributions*
+01. INTRODUCTION                                            *latexlight-intro*
+
+LaTeX Light is a lightweight LaTeX companion for Vim that compiles your
+document and shows you LaTeX warnings and errors. Open up a LaTeX file
+and use <leader>p to issue the build command ('p' for 'PDF'). To change the 
+default shortcuts or build command, see |latexlight-configuration|.
+
+==============================================================================
+02. FEATURES                                             *latexlight-features*
+
+* Document compilation via external command
+
+==============================================================================
+03. CONFIGURATION                                   *latexlight-configuration*
+
+------------------------------------------------------------------------------
+03.1 g:latexlight_map_keys                 *latexlight-configuration-map-keys*
+
+Set this to 0 to disable default keymapping.
+let g:latexlight_map_keys = 0
+
+------------------------------------------------------------------------------
+03.2 g:latexlight_map_prefix             *latexlight-configuration-map-prefix*
+
+Alter the default key mapping prefix key. Default: <leader>.
+let g:latexlight_map_prefix = ','
+
+------------------------------------------------------------------------------
+03.3 g:latexlight_command                   *latexlight-configuration-command*
+
+Alter the default command used to compile the LaTeX file. Default: make.
+let g:latexlight_command = 'make'
+
+==============================================================================
+04. CONTRIBUTIONS                                   *latexlight-contributions*
 
 Contributions and pull requests are welcome.
 
 ==============================================================================
-LICENSE                                                    *latexlight-license*
+05. LICENSE                                               *latexlight-license*
 
-MIT License.  Copyright Â© 2016 Ruben Verweij.
-
- vim:tw=78:ts=8:ft=help:norl:
+MIT License.  Copyright © 2016 Ruben Verweij.
