@@ -1,4 +1,9 @@
-if !exist('g:latexlight_map_keys')
+if exists("g:loaded_latexlight") || v:version < 700 || &cp
+  finish
+endif
+let g:loaded_latexlight = 1
+
+if !exists('g:latexlight_map_keys')
   let g:latexlight_map_keys = 1
 endif
 
@@ -7,5 +12,8 @@ if !exists('g:latexlight_map_prefix')
 endif
 
 if g:latexlight_map_keys
-  execute "autocommand FileType tex" "nnoremap <buffer>" g:latexlight_map_prefix."p"  ":call <sid>latexlight#CompileLatexShowErrors()<CR>"
+ 	augroup latexlight
+		autocmd!
+		autocmd FileType tex execute "nnoremap <buffer>".g:latexlight_map_prefix."p :call latexlight#latexlight#CompileLatexShowErrors()<CR>"
+	augroup END
 endif
