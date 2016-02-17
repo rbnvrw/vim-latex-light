@@ -12,7 +12,7 @@ if !exists("g:latexlight_quick_command")
 endif
 
 if !exists("g:latexlight_quick_command_append_file")
-  let g:latexlight_quick_command_append_file = "%:t"
+  let g:latexlight_quick_command_append_file = "%"
 endif
 
 if !exists("g:latexlight_quick_view_command")
