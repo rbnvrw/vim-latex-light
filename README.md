@@ -27,6 +27,16 @@ Alter the default command used to compile the LaTeX file. Default: `make`.
 
 `let g:latexlight_command = 'make'`
 
+### g:latexlight_quick_command
+If you do not have a `Makefile` or you just want to quickly compile a single document, you can use a quick command mapped to `<leader>q`. The default command is:
+
+`let g:latexlight_quick_command = "pdflatex -synctex=1 -interaction=nonstopmode --shell-escape"`
+
+### g:latexlight_quick_command_append_file
+To append the filename to the quick command, use this setting. The string will be passed through `expand()`.
+
+`let g:latexlight_quick_command_append_file = "%:t"`
+
 ### g:latexlight_startpattern_list 
 Alter the list of patterns that LaTeX Light looks for in the logfile. Default:
 ```
