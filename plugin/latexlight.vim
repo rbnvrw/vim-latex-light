@@ -15,5 +15,6 @@ if g:latexlight_map_keys
  	augroup latexlight
 		autocmd!
 		autocmd FileType tex execute "nnoremap <buffer>".g:latexlight_map_prefix."p :call latexlight#latexlight#CompileLatexShowErrors()<CR>"
+		autocmd FileType tex execute "nnoremap <buffer>".g:latexlight_map_prefix."q :call latexlight#latexlight#QuickCompileLatexShowErrors()<CR>"
 	augroup END
 endif

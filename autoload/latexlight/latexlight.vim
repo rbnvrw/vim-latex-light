@@ -7,6 +7,18 @@ if !exists("g:latexlight_command")
   let g:latexlight_command = "make"
 endif
 
+if !exists("g:latexlight_quick_command")
+  let g:latexlight_quick_command = "pdflatex %"
+endif
+
+if !exists("g:latexlight_quick_view_command")
+  if has("win32") || has("win16")
+    let g:latexlight_quick_view_command = "start '' /max %"
+  else
+    let g:latexlight_quick_view_command = "xdg-open %"
+  endif
+endif
+
 if !exists("g:latexlight_startpattern_list")
   let g:latexlight_startpattern_list = [{'pattern': 'LaTeX\s\+Error:', 'type':'E'}, {'type':'W', 'pattern': 'LaTeX\s\+Warning:'}]
 endif
@@ -31,6 +43,14 @@ function! latexlight#latexlight#SortQFListUnique(list)
     endif
   endfor
   return unique_list
+endfunction
+
+function! latexlight#latexlight#QuickCompile()
+  let compile_command=substitute(g:latexlight_quick_command, '\%', s:filename)
+  let compile_command=shellescape(compile_command)
+  let command="cd ".shellescape(s:currentdirectory)." && ".compile_command
+  execute ':silent !'.command
+  execute ':redraw!'
 endfunction
 
 function! latexlight#latexlight#Compile()
@@ -77,8 +97,7 @@ function! latexlight#latexlight#GetQuickfixList(lines)
   return qflist
 endfunction
 
-function! latexlight#latexlight#CompileLatexShowErrors() 
-  call latexlight#latexlight#Compile()
+function! latexlight#latexlight#GetAndShowErrorsAndWarnings()
   let lines = readfile(s:currentdirectory.'/'.s:file.'.log')
   let qflist = latexlight#latexlight#GetQuickfixList(lines)
   if len(qflist) > 0 
@@ -87,4 +106,14 @@ function! latexlight#latexlight#CompileLatexShowErrors()
   else
     call setqflist([], 'r')
   endif 
+endfunction
+
+function! latexlight#latexlight#CompileLatexShowErrors() 
+  call latexlight#latexlight#Compile()
+  call latexlight#latexlight#GetAndShowErrorsAndWarnings()
 endfunction 
+
+function! latexlight#latexlight#QuickCompileLatexShowErrors()
+  call latexlight#latexlight#QuickCompile()
+  call latexlight#latexlight#GetAndShowErrorsAndWarnings()
+endfunction
