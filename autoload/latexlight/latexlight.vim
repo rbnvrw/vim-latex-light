@@ -8,7 +8,11 @@ if !exists("g:latexlight_command")
 endif
 
 if !exists("g:latexlight_quick_command")
-  let g:latexlight_quick_command = "pdflatex %"
+  let g:latexlight_quick_command = "pdflatex -synctex=1 -interaction=nonstopmode --shell-escape"
+endif
+
+if !exists("g:latexlight_quick_command_append_file")
+  let g:latexlight_quick_command_append_file = "%:t"
 endif
 
 if !exists("g:latexlight_quick_view_command")
@@ -46,16 +50,14 @@ function! latexlight#latexlight#SortQFListUnique(list)
 endfunction
 
 function! latexlight#latexlight#QuickCompile()
-  let compile_command=substitute(g:latexlight_quick_command, '%', s:filename, '')
-  let compile_command=shellescape(compile_command)
+  let compile_command=g:latexlight_quick_command.' '.shellescape(expand(g:latexlight_quick_command_append_file))
   let command="cd ".shellescape(s:currentdirectory)." && ".compile_command
   execute ':silent !'.command
   execute ':redraw!'
 endfunction
 
 function! latexlight#latexlight#Compile()
-  let compile_command=shellescape(g:latexlight_command)
-  let command="cd ".shellescape(s:currentdirectory)." && ".compile_command
+  let command="cd ".shellescape(s:currentdirectory)." && ".g:latexlight_command
   execute ':silent !'.command
   execute ':redraw!'
 endfunction
