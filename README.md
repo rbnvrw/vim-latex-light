@@ -35,7 +35,7 @@ If you do not have a `Makefile` or you just want to quickly compile a single doc
 ### g:latexlight_quick_command_append_file
 To append the filename to the quick command, use this setting. The string will be passed through `expand()`.
 
-`let g:latexlight_quick_command_append_file = "%:t"`
+`let g:latexlight_quick_command_append_file = "%"`
 
 ### g:latexlight_startpattern_list 
 Alter the list of patterns that LaTeX Light looks for in the logfile. Default:
