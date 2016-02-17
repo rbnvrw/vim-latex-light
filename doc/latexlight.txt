@@ -70,7 +70,7 @@ let g:latexlight_quick_command = "pdflatex -synctex=1
 To append the filename to the quick command, use this setting. 
 The string will be passed through `expand()`.
 
-let g:latexlight_quick_command_append_file = "%:t"
+let g:latexlight_quick_command_append_file = "%"
 
 ------------------------------------------------------------------------------
 03.6 g:latexlight_startpattern_list 
