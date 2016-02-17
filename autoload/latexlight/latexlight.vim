@@ -46,7 +46,7 @@ function! latexlight#latexlight#SortQFListUnique(list)
 endfunction
 
 function! latexlight#latexlight#QuickCompile()
-  let compile_command=substitute(g:latexlight_quick_command, '\%', s:filename)
+  let compile_command=substitute(g:latexlight_quick_command, '%', s:filename, '')
   let compile_command=shellescape(compile_command)
   let command="cd ".shellescape(s:currentdirectory)." && ".compile_command
   execute ':silent !'.command
